@@ -1,0 +1,26 @@
+{
+    "success": true,
+    "cart": {
+        "_id": "68e56b36577b8fe0cf2b1acc",
+        "products": [
+            {
+                "productId": {
+                    "_id": "67c8d8619fccb188a86582aa",
+                    "photos": [
+                        "https://exemplo.com/camiseta-bonita.jpg"
+                    ],
+                    "name": "Camiseta EBAC",
+                    "price": 159.99,
+                    "quantity": 39,
+                    "specialPrice": 159.99
+                },
+                "quantity": 1,
+                "_id": "68e6b72b577b8fe0cf2b2f50"
+            }
+        ],
+        "userId": "68e56156577b8fe0cf2b190d",
+        "createdAt": "2025-10-07T19:34:14.121Z",
+        "updatedAt": "2025-10-08T19:10:35.787Z",
+        "__v": 0
+    }
+}

@@ -21,6 +21,18 @@ class HomePage {
         this.btnAccount.click()
         this.btnCriarConta.click()
     }
+
+    abrirPesquisarProduto() {
+        cy.get('[data-testid="search-products"]').click()
+    }
+    
+    abrirFiltroCategorias() {
+        cy.get('[data-testid="Category"]').click()
+    }
+
+    categorias() {
+        return cy.get('[data-testid^="search-category-"]')
+    }
 }
 
 export default new HomePage()
