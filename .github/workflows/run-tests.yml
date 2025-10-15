@@ -27,8 +27,6 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: results/
-
-jobs:
   deploy-pages:
     needs: cypress-run 
     runs-on: ubuntu-latest
