@@ -1,0 +1,44 @@
+name: Executar testes de UI com Cypress
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Instalar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.13.1'
+
+      - name: Instalar dependências
+        run: npm install
+
+      - name: Executar testes com Cypress
+        run: npx cypress run --reporter junit --reporter-options 'mochaFile=results/test-results.xml,toConsole=true'
+
+      - name: Publicar relatório de testes
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: results/
+
+jobs:
+  deploy-pages:
+    needs: cypress-run 
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy para GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
